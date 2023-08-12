@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <link rel="stylesheet" href="csswla.css">
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <div class="main" >
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button id="bat" >Add item</button>
+    </div>
+
+    <ul id="unlis" >
+
+    </ul>
+
+
+<script >
+
+  var input = document.getElementById("item");
+  var btn = document.getElementById("bat");
+  var unlist = document.getElementById("unlis");
+  
+  btn.addEventListener("click", function(){
+      var int = input.value
+      input.value = "";
+  
+      
+      var listItem = document.createElement("li");
+      var span = document.createElement("span");
+      var deleteButton = document.createElement("button");
+  
+      span.textContent = int;
+      deleteButton.textContent = "delete";
+  
+      deleteButton.addEventListener("click", function(){
+          unlist.removeChild(listItem);
+      })
+  
+      listItem.appendChild(span);
+      listItem.appendChild(deleteButton);
+      unlist.appendChild(listItem);
+  
+  
+      int.focus()
+  })</script>
+  </body>
+</html>
